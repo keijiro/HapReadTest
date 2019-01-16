@@ -532,6 +532,13 @@ int MP4D__open(MP4D_demux_t * mp4, FILE * f)
             tr->SampleDescription.audio.samplerate_hz = READ(4) >> 16;
             break;
 
+        // Hap subtypes
+        case BOX_Hap1:
+        case BOX_Hap5:
+        case BOX_HapY:
+        case BOX_HapM:
+        case BOX_HapA:
+
         // vvvvvvvvvvvvv AVC support vvvvvvvvvvvvv
         case BOX_avc1:  // AVCSampleEntry extends VisualSampleEntry 
 //         case BOX_avc2:   - no test

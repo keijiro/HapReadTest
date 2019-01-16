@@ -215,8 +215,14 @@ enum
 
     // these from http://lists.mplayerhq.hu/pipermail/ffmpeg-devel/2008-September/053151.html
     BOX_albm    = FOUR_CHAR_INT( 'a', 'l', 'b', 'm'),      // album
-    BOX_yrrc    = FOUR_CHAR_INT( 'y', 'r', 'r', 'c')       // album
+    BOX_yrrc    = FOUR_CHAR_INT( 'y', 'r', 'r', 'c'),      // album
 
+    // Hap subtypes
+    BOX_Hap1    = FOUR_CHAR_INT( 'H', 'a', 'p', '1' ),
+    BOX_Hap5    = FOUR_CHAR_INT( 'H', 'a', 'p', '5' ),
+    BOX_HapY    = FOUR_CHAR_INT( 'H', 'a', 'p', 'Y' ),
+    BOX_HapM    = FOUR_CHAR_INT( 'H', 'a', 'p', 'M' ),
+    BOX_HapA    = FOUR_CHAR_INT( 'H', 'a', 'p', 'A' )
 };
 
 #endif //mp4defs_H_INCLUDED
