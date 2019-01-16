@@ -155,6 +155,7 @@ int MP4D__open(MP4D_demux_t * mp4, FILE * f)
     int eof_flag = 0;
     unsigned i;
     MP4D_track_t * tr = NULL;
+    int read_hdlr = 0;
 
 #if MP4D_DEBUG_TRACE
     // path of current element: List0/List1/... etc
@@ -481,8 +482,16 @@ int MP4D__open(MP4D_demux_t * mp4, FILE * f)
             // the rest of this box is skipped by default ...
             break;
 
+        case BOX_mdia:
+            read_hdlr = 1;
+            break;
+
+        case BOX_minf:
+            read_hdlr = 0;
+            break;
+
         case BOX_hdlr:
-            if (tr) // When this box is within 'meta' box, the track may not be avaialable
+            if (tr && read_hdlr) // When this box is within 'meta' box, the track may not be avaialable
             {
                 SKIP(4);            // pre_defined
                 tr->handler_type = READ(4);
