@@ -1,5 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #define MINIMP4_IMPLEMENTATION
-#include "minimp4.h"
+#include "mp4demux.h"
 
 #include "hap.h"
 
@@ -24,7 +27,7 @@ int main()
     for (unsigned int i = 0; i < demux.track[0].sample_count; i++)
     {
         unsigned int in_size, timestamp, duration;
-        MP4D_file_offset_t in_offs = MP4D__frame_offset(&demux, 0, i, &in_size, &timestamp, &duration);
+        mp4d_size_t in_offs = MP4D__frame_offset(&demux, 0, i, &in_size, &timestamp, &duration);
 
         fseek(file, in_offs, SEEK_SET);
         fread(in_buffer, in_size, 1, file);
