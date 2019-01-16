@@ -17,6 +17,10 @@ int main()
     void *in_buffer = malloc(4 * 1024 * 1024);
     void *out_buffer = malloc(4 * 1024 * 1024);
 
+    printf("width:%d height:%d\n",
+        demux.track[0].SampleDescription.video.width,
+        demux.track[0].SampleDescription.video.height);
+
     for (unsigned int i = 0; i < demux.track[0].sample_count; i++)
     {
         unsigned int in_size, timestamp, duration;

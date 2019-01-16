@@ -2649,6 +2649,12 @@ broken_android_meta_hack:
         // Read box header
         switch(box_name)
         {
+        case BOX_tkhd:
+            SKIP(4 + 4 + 4 + 4 + 4 + 8 + 2 + 2 + 2 + 2 + 2 + 36);
+            tr->SampleDescription.video.width = READ(4);
+            tr->SampleDescription.video.height = READ(4);
+            break;
+
         case BOX_stz2:  //ISO/IEC 14496-1 Page 38. Section 8.17.2 - Sample Size Box.
         case BOX_stsz:
             {
