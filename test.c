@@ -6,6 +6,8 @@
 static void hap_callback
     (HapDecodeWorkFunction function, void *p, unsigned int count, void *info)
 {
+    fputs("Threading callback is not implemented.", stderr);
+    exit(-1);
 }
 
 static double calc_time(uint32_t hi, uint32_t lo, uint32_t scale)
